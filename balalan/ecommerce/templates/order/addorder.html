@@ -1,0 +1,79 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <br>
+    
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-success">
+        <h1 class="h2">Yeni Sipariş Ekle</h1>
+  
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+          </div>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            This week
+          </button>
+
+        </div>
+      </div>
+ 
+<div class="row">
+<div class="col-sm-12">
+    <div class="x_content">
+         
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+              
+            </div>
+           <form method="POST">
+              {% csrf_token %} {{form}}
+<h1>Kayıt</h1>
+
+<!-- One "tab" for each step in the form: -->
+
+<div class="tab">Customer Info:
+  <p><input id="name" name="name" placeholder="Customer Name..." oninput="this.className = ''"></p>
+  <p><input id="address" name="address" placeholder="Adress..." oninput="this.className = ''"></p>
+  <p><input id="city" name="city" placeholder="City..." oninput="this.className = ''"></p>
+  <p><input id="state" name="state" placeholder="State..." oninput="this.className = ''"></p>
+  <p><input id="zipcode" name="zipcode" placeholder="Zipcode..." oninput="this.className = ''"></p>
+  <p><input id="phone" name="phone" placeholder="Phone..." oninput="this.className = ''"></p>  
+  <p><input id="email" name="email" placeholder="Email..." oninput="this.className = ''"></p>             
+</div>
+
+<!-- One "tab" for each step in the form:-->
+<div class="tab">Order Info:
+  <p><input id="order_no" name="order_no" placeholder="Order No..." oninput="this.className = ''"></p>
+  <p><input id="price" name="price" placeholder="Price..." oninput="this.className = ''"></p>
+  <p><input id="quantity" name="quantity" placeholder="Quantity..." oninput="this.className = ''"></p>
+
+</div>
+ 
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <button type="submit" class="btn btn-primary">
+</div>
+
+</form>
+          </div>
+</div>
+</div>  
+      </div>
+    </main>
+  </div>
+</div>
+
+ {% endblock content %}

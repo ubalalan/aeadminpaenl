@@ -1,0 +1,80 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <br>
+    
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-info">
+        <h1 class="h2">Tedarik Ürünler</h1>
+  
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+          <button type="button" class="btn btn-sm btn-outline-primary"><a href="{% url 'source' %}" class="button nounderline">Kaynak</a></button>
+           <button type="button" class="btn btn-sm btn-outline-primary"><a href="{% url 'addsource' %}" class="button nounderline">Yeni Tedarik </a></button>
+          </div>   
+        </div>
+      </div>
+
+     
+<div class="row">
+<div class="col-sm-12">
+<table id="datatable-checkbox" class="table table-sm table-striped table-bordered bulk_action dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="datatable-checkbox_info">
+<thead>
+<tr role="row">
+
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 222px;">AE-ID</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"  style="width: 340px;">Ürün Resmi</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"  style="width: 340px;">Ürün Adı</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 173px;">Ürün Fiyatı</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"style="width: 161px;">Stok</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 138px;">İşlem</th></tr>
+</thead><tbody>
+
+ {% for i in Suplys%}
+
+<tr role="row" class="odd">
+<td>{{i.aeproduct_id}}</td>
+<td>{{i.name}}</td>
+<td>{{ i.price }}</td>
+<td>{{ i.sku}}</td>
+<td>${{ i.price }}</td>
+
+<td>#</td>
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+</div></div>
+<div class="row">
+<div class="col-sm-5">
+  <ul class="pagination">
+    {% if Products.has_previous %}
+      <<a href="?page=1">&laquo; first</a>
+      <a href="?page={{ Products.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span class="current">
+                    Page {{ Products.number }} of {{ Products.paginator.num_pages }}
+                </span>
+
+              {% if Products.has_next %}
+                  <a href="?page={{ Products.next_page_number }}">next</a>
+                  <a href="?page={{ Products.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+  </ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>  
+      </div>
+    </main>
+  </div>
+</div>
+
+ {% endblock content %}

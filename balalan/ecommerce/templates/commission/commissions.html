@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+<br>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+     <br> 
+
+<div class="card">
+<div class="card-body">
+<h1 class="h2 alert-heading alert alert-success">Komisyon Hesaplama</h1>
+<table class="table">
+<thead>
+<tr role="row">
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 722px;">Ürün Adı</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 53px;">Kur </th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 30px;">Maliyet TR</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"  style="width: 40px;">Maliyet $</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Ağırlık</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Kurye</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Lojistik</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Gümrük Vergisi</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Kdv</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Ürün Maliyeti</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">AE- Satış Fiyatı</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Kupon</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Komisyon</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Affiliate</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Komisyon Toplam</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">AE-Kalan</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Net Kar $</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Net Kar TL</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 40px;">Kar Marjı</th>
+</tr>
+</thead><tbody class="table">
+
+{% for i in Commissions%}
+
+<tr role="row" class="odd">
+<td>
+{{ i.track_product.title}}
+{{ i.track_product.sku}}
+</td>
+<td>{{i.dollar }}₺</td>
+<td>{{ i.track_product.discount_price}}₺</td>
+<td>${{ i.m_price}}</td>
+<td>{{ i.weight }}</td>
+<td>${{ i.y_cargo }}</td>
+<td>${{ i.logistics }}</td>
+<td>${{ i.customs }}</td>
+<td>${{ i.tax }}</td>
+<td>${{ i.p_cost}}</td>
+<td>${{ i.ae_product.price}}</td>
+<td>${{ i.coupon }}</td>
+<td>${{ i.ae_commission }}</td>
+<td>${{ i.affiliate }}</td>
+<td>${{ i.sum_commissions }}</td>
+<td>${{ i.ae_remaining }}</td>
+<td>${{ i.net_profit }}</td>
+<td>{{ i.net_profit_tl }}₺</td>
+<td>${{ i.profit_margin }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<div class="row">
+<div class="col-sm-5">
+  <ul class="pagination">
+    {% if Customers.has_previous %}
+      <<a href="?page=1">&laquo; first</a>
+      <a href="?page={{ Customers.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span class="current">
+                    Page {{ Customers.number }} of {{ Customers.paginator.num_pages }}
+                </span>
+
+              {% if Customers.has_next %}
+                  <a href="?page={{ Customers.next_page_number }}">next</a>
+                  <a href="?page={{ Customers.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+  </ul>
+
+
+
+
+    
+    </main>
+  </div>
+</div>
+
+ {% endblock content %}

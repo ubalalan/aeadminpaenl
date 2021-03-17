@@ -1,0 +1,149 @@
+{% extends 'base.html' %} {% load static %} {% load crispy_forms_tags %} 
+{% load colorize %} {% block content %}
+<div class="container-fluid">
+  <div class="content-wrapper">
+  <div class="row mb-2">
+  <div class="col-sm-6">
+            <h1 class="m-0">Pazaryerleri Ürün Takip</h1>
+          </div></div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <div class="btn-group me-2">
+          <button
+            class="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#addItemModal"
+          >
+            Ürün Ekle
+          </button>
+          <a href="{% url 'update-prices' %}"
+            ><button type="button" class="btn btn-sm btn-outline-secondary">
+              Güncelle
+            </button></a
+          >
+          <span>Takip Edilen : {{items_no}}</span>
+          <span>Fiyat Değişikliği :{{no_discounted}}</span>
+   </div>   </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <hr />
+              <table class="table">
+                <thead class="table-dark">
+                  <tr role="row">
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 340px"
+                    >
+                      Ürün Adı
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 22px"
+                    >
+                      Ürün Linki
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 22px"
+                    >
+                      Mevcut Fiyatı
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 22px"
+                    >
+                      Eski Fiyat
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 22px"
+                    >
+                      Fiyat Farkı
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 50px"
+                    >
+                      Oluşturulma Tarihi
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 50px"
+                    >
+                      Güncelleme Tarihi
+                    </th>
+                    <th
+                      class="sorting"
+                      tabindex="0"
+                      aria-controls="datatable-checkbox"
+                      rowspan="1"
+                      colspan="1"
+                      style="width: 50px"
+                    >
+                      İşlem
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% if qs %} {% for item in qs %}
+                  <tr role="row" class="odd">
+                    <td>{{item.name}}</td>
+                    <td>
+                      <a href="{{item.url}}" class="link-success"
+                        >{{item.url}}</a
+                      >
+                    </td>
+                    <td>{{item.current_price }}</td>
+                    <td>{{item.old_price}}</td>
+                    <td>{{item.price_difference|colorize}}</td>
+                    <td>{{item.created}}</td>
+                    <td>{{item.updated}}</td>
+                    <td>
+                      <a href="{% url 'delete' item.pk %}"
+                        ><button class="btn btn-danger">Sil</button></a
+                      >
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+
+              {% else %}
+              <h3>No items being tracked ...</h3>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>

@@ -1,0 +1,79 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+<br>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+     <br>
+     <div class="row">
+<div class="col-lg-12 grid-margin stretch-card">
+<div class="card">
+<div class="card-body">
+  
+        <h1 class="h2">Siparişler
+  
+          <button type="button" class="btn btn-sm btn-outline-primary"><a href="{% url 'addorder' %}" class="button nounderline">Yeni Ürün Ekle</a></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle"><span data-feather="calendar"></span>This week</button>
+        
+  </h1>   <hr>
+<table class="table table-sm">
+<thead>
+<tr role="row">
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 12px;">No</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 222px;">Sipariş Numarası</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"  style="width: 340px;">Müşteri Bilgisi</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 138px;">Ürün Bilgisi</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 138px;">Adet</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 138px;">Sipariş Tutarı</th>
+
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1"style="width: 161px;">Sipariş Tarihi</th>
+<th class="sorting" tabindex="0" aria-controls="datatable-checkbox" rowspan="1" colspan="1" style="width: 138px;">Sipariş Durumu</th>
+</tr>
+</thead><tbody>
+
+ {% for i in Orders%}
+<tr role="row" class="odd">
+<td>{{i.id }}</td>
+<td>{{i.order_no }}</td>
+<td>{{ i.customer }}</td>
+<td>{{ i.product }}</td>
+<td>{{ i.quantity }}</td>
+<td>$ {{ i.total }}</td>
+
+<td>{{i.date_added}}</td>
+<td>{{ i.status }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<div class="row">
+<div class="col-sm-5">
+  <ul class="pagination">
+    {% if Orders.has_previous %}
+      <<a href="?page=1">&laquo; first</a>
+      <a href="?page={{ Orders.previous_page_number }}">Previous</a>
+    {% endif %}
+    <span class="current">
+                    Page {{ Orders.number }} of {{ Orders.paginator.num_pages }}
+                </span>
+
+              {% if Orders.has_next %}
+                  <a href="?page={{ Orders.next_page_number }}">next</a>
+                  <a href="?page={{ Orders.paginator.num_pages }}">last &raquo;</a>
+              {% endif %}
+  </ul>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>  
+  
+    </main>
+  </div>
+</div>
+
+ {% endblock content %}
