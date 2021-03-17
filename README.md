@@ -1,2 +1,2 @@
-# aeadminpaenl
+# aeadminpanel
 AE for dashboard
