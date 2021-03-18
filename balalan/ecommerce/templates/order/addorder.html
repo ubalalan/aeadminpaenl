@@ -1,79 +1,148 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% load static %} 
+{% load static %}
 
 {% block content %}
 
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    <br>
-    
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-success">
-        <h1 class="h2">Yeni Sipariş Ekle</h1>
-  
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-            <span data-feather="calendar"></span>
-            This week
-          </button>
+<style>
+select#name {
+    width: 350px;
+}
+</style>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <br>
+  <div
+    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-success">
+    <h1 class="h2">Yeni Sipariş</h1>
 
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-body">
+
+        <h2>Sipariş Formu</h2>
+        <hr>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Sipariş</span>
+           
+          </h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <label for="name" class="form-label">Ürün Adı</label>
+                <select class="form-select" id="name" required>
+                  <option value="">Seçiniz...</option>
+                  <option>HP SSD S700</option>
+                </select>
+              </div>
+              <span class="text-muted">$12</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+                <h6 class="my-0">Promo code</h6>
+                <small>EXAMPLECODE</small>
+              </div>
+              <span class="text-success">−$5</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>$20</strong>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Müşteri Bilgisi</h4>
+
+          <form class="needs-validation" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="firstName" class="form-label">First name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="telefon" class="form-label">Telefon</label>
+                <input type="text" class="form-control" id="email" placeholder="">
+                <div class="invalid-feedback">
+                  Lütfen telefon numarası giriniz.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                <div class="invalid-feedback">
+                  Please enter your shipping address.
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+              </div>
+
+              <div class="col-md-5">
+                <label for="country" class="form-label">Country</label>
+                <select class="form-select" id="country" required>
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid country.
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <label for="state" class="form-label">State</label>
+                <select class="form-select" id="state" required>
+                  <option value="">Choose...</option>
+                  <option>California</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid state.
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4">
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          </form>
         </div>
       </div>
- 
-<div class="row">
-<div class="col-sm-12">
-    <div class="x_content">
-         
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-              
-            </div>
-           <form method="POST">
-              {% csrf_token %} {{form}}
-<h1>Kayıt</h1>
-
-<!-- One "tab" for each step in the form: -->
-
-<div class="tab">Customer Info:
-  <p><input id="name" name="name" placeholder="Customer Name..." oninput="this.className = ''"></p>
-  <p><input id="address" name="address" placeholder="Adress..." oninput="this.className = ''"></p>
-  <p><input id="city" name="city" placeholder="City..." oninput="this.className = ''"></p>
-  <p><input id="state" name="state" placeholder="State..." oninput="this.className = ''"></p>
-  <p><input id="zipcode" name="zipcode" placeholder="Zipcode..." oninput="this.className = ''"></p>
-  <p><input id="phone" name="phone" placeholder="Phone..." oninput="this.className = ''"></p>  
-  <p><input id="email" name="email" placeholder="Email..." oninput="this.className = ''"></p>             
-</div>
-
-<!-- One "tab" for each step in the form:-->
-<div class="tab">Order Info:
-  <p><input id="order_no" name="order_no" placeholder="Order No..." oninput="this.className = ''"></p>
-  <p><input id="price" name="price" placeholder="Price..." oninput="this.className = ''"></p>
-  <p><input id="quantity" name="quantity" placeholder="Quantity..." oninput="this.className = ''"></p>
-
-</div>
- 
-<div style="overflow:auto;">
-  <div style="float:right;">
-    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-  </div>
-</div>
-
-<!-- Circles which indicates the steps of the form: -->
-<div style="text-align:center;margin-top:40px;">
-  <span class="step"></span>
-  <button type="submit" class="btn btn-primary">
-</div>
-
-</form>
-          </div>
-</div>
-</div>  
-      </div>
-    </main>
-  </div>
-</div>
-
- {% endblock content %}
+    </div>
+    {% endblock content %}

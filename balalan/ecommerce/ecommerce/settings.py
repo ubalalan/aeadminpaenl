@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'source.apps.SourceConfig',
     'marketplaces.apps.MarketplacesConfig',
     'commissions.apps.CommissionsConfig',
+    'currentaccounts.apps.CurrentaccountsConfig',
     'crispy_forms',
     
 

@@ -1,0 +1,93 @@
+{% extends 'base.html' %} 
+
+{% load static %} 
+
+{% block content %}
+<br>
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <br>
+     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-success">
+       <h1 class="h2">Cari Hesap</h1>
+ 
+       <div class="btn-toolbar mb-2 mb-md-0">
+         <div class="btn-group me-2">
+           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+           <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+         </div>
+         <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+           <span data-feather="calendar"></span>
+           This week
+         </button>
+       
+       </div>
+     </div>
+<div class="row">
+<div class="col-md-12 grid-margin">
+               <div class="card">
+                 <div class="card-body">
+                   <div class="row">
+                     <div class="col-lg-3 col-md-6">
+                       <div class="d-flex">
+                         <div class="wrapper">
+                           <h3 class="mb-0 font-weight-semibold">32,451</h3>
+                           <h5 class="mb-0 font-weight-medium text-primary">Siparişler</h5>
+                           <p class="mb-0 text-muted">+14.00(+0.50%)</p>
+                         </div>
+                         <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                           <canvas height="50" width="100" id="stats-line-graph-1" class="chartjs-render-monitor" style="display: block;"></canvas>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                       <div class="d-flex">
+                         <div class="wrapper">
+                           <h3 class="mb-0 font-weight-semibold">15,236</h3>
+                           <h5 class="mb-0 font-weight-medium text-primary">Sevkiyatlar</h5>
+                           <p class="mb-0 text-muted">+138.97(+0.54%)</p>
+                         </div>
+                         <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                           <canvas height="50" width="100" id="stats-line-graph-2" class="chartjs-render-monitor" style="display: block;"></canvas>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                       <div class="d-flex">
+                         <div class="wrapper">
+                           <h3 class="mb-0 font-weight-semibold">7,688</h3>
+                           <h5 class="mb-0 font-weight-medium text-primary">Conversation</h5>
+                           <p class="mb-0 text-muted">+57.62(+0.76%)</p>
+                         </div>
+                         <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                           <canvas height="50" width="100" id="stats-line-graph-3" class="chartjs-render-monitor" style="display: block;"></canvas>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                       <div class="d-flex">
+                         <div class="wrapper">
+                           <h3 class="mb-0 font-weight-semibold">1,553</h3>
+                           <h5 class="mb-0 font-weight-medium text-primary">Downloads</h5>
+                           <p class="mb-0 text-muted">+138.97(+0.54%)</p>
+                         </div>
+                         <div class="wrapper my-auto ml-auto ml-lg-4"><div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                           <canvas height="50" width="100" id="stats-line-graph-4" class="chartjs-render-monitor" style="display: block;"></canvas>
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+</div>
+
+
+   </div>
+ </div>
+</div>
+
+   </main>
+  </div>
+</div>
+
+ {% endblock content %}

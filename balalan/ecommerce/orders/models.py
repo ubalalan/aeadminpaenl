@@ -2,7 +2,7 @@ from django.db import models
 import customers.models
 import products.models
 from datetime import datetime
-from django.utils.safestring import mark_safe
+
 # Create your models here.
 
 
@@ -11,7 +11,6 @@ order_status = (
     ("Yolda", "Yolda"),
     ("Teslim Edildi", "Teslim Edildi"),
 )
-
 
 class Order(models.Model):
     order_no = models.CharField(
@@ -24,14 +23,12 @@ class Order(models.Model):
         default=0, null=True, blank=True, verbose_name="Adet")    
     date_added = models.DateTimeField(
         default=datetime.now, blank=True, verbose_name="Oluşturulma Tarihi")
-    complete = models.BooleanField(
-        default=False,choices=order_status, verbose_name="Sipariş Durumu")
+    complete = models.CharField(
+        default=False,choices=order_status,max_length=20, verbose_name="Sipariş Durumu")
    
     def __str__(self):
         return str(self.customer) 
            
     @property
     def total(self):
-        return(self.price * self.quantity)   
-
-
+        return(self.price * self.quantity)
