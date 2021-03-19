@@ -1,4 +1,4 @@
-from dashboard.models import Product
+from .models import Product
 from django import forms
 from django.forms import ModelForm
 from django.core.validators import FileExtensionValidator

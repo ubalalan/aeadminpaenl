@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <br>
+
+  <div
+    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom alert-heading alert alert-info">
+    <h1 class="h2">Test Yeni Order</h1>
+
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group me-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+        <span data-feather="calendar"></span>
+        This week
+      </button>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="x_content">
+
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+
+        </div>
+        <form method="POST">
+          {% csrf_token %} {{form}}
+          <div class="form-row">
+            <div class="col-md-6">
+              <h4 class="mb-3">Müşteri Bilgisi</h4>
+              <form class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="name"  class="form-label">Müşteri Adı</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required>
+                    <label for="address" class="form-label">Adres</label>
+                    <input type="text" class="form-control" id="address" name="address"placeholder="" value="" required>
+                    <label for="address" class="form-label">Şehir</label>
+                    <input type="text" class="form-control" id="city" name="city"placeholder="" value="" required>
+                    <label for="state" class="form-label">Ülke</label>
+                    <input type="text" class="form-control" id="state" name="state" placeholder="" value="" required>
+                    <label for="zipcode" class="form-label">Posta Kodu</label>
+                    <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="" value="" required>
+                    <label for="phone" class="form-label">Telefon</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="" value="" required>
+                  
+        
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>Sipariş No</label>
+                    <input type="text" class="form-control" id="order_no" name="order_no" />
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" id="name" name="name" />
+                    <label>Fiyat </label>
+                    <input type="text" class="form-control" id="price" name="price" />
+                    <label>Adet </label>
+                    <input type="text" class="form-control" id="quantity" name="quantity" />
+                  </div>
+                  <hr>
+                  <button type="submit" class="btn btn-primary">
+                    Yeni Sipariş Ekle
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+      </div>
+    </div>
+</main>
+</div>
+</div>
+
+{% endblock content %}

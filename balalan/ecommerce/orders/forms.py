@@ -1,4 +1,4 @@
-from dashboard.models import Order, Customer
+from .models import Order, Customer
 from django import forms
 from django.forms import ModelForm
 from django.core.validators import FileExtensionValidator
